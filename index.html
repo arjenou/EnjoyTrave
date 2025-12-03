@@ -132,7 +132,7 @@
           </div>
           <div class="row">
             <div class="col-md-4 mb-4">
-              <div class="card overflow-hidden shadow"> <img class="card-img-top" src="static/picture/travelPlace/osaka.jpg" alt="关西">
+              <div class="card overflow-hidden shadow h-100"> <img class="card-img-top" src="static/picture/travelPlace/osaka.jpg" alt="关西">
                 <div class="card-body py-4 px-3">
                   <div class="d-flex flex-column flex-lg-row justify-content-between mb-3">
                     <h4 class="text-secondary fw-medium"><a class="link-900 text-decoration-none stretched-link" href="#!" data-i18n="coverage.region1.name">关西</a></h4>
@@ -142,7 +142,7 @@
               </div>
             </div>
             <div class="col-md-4 mb-4">
-              <div class="card overflow-hidden shadow"> <img class="card-img-top" src="static/picture/travelPlace/tokyo.jpg" alt="关东">
+              <div class="card overflow-hidden shadow h-100"> <img class="card-img-top" src="static/picture/travelPlace/tokyo.jpg" alt="关东">
                 <div class="card-body py-4 px-3">
                   <div class="d-flex flex-column flex-lg-row justify-content-between mb-3">
                     <h4 class="text-secondary fw-medium"><a class="link-900 text-decoration-none stretched-link" href="#!" data-i18n="coverage.region2.name">关东</a></h4>
@@ -152,7 +152,7 @@
               </div>
             </div>
             <div class="col-md-4 mb-4">
-              <div class="card overflow-hidden shadow"> <img class="card-img-top" src="static/picture/travelPlace/nagoya.jpg" alt="中部/北陆">
+              <div class="card overflow-hidden shadow h-100"> <img class="card-img-top" src="static/picture/travelPlace/nagoya.jpg" alt="中部/北陆">
                 <div class="card-body py-4 px-3">
                   <div class="d-flex flex-column flex-lg-row justify-content-between mb-3">
                     <h4 class="text-secondary fw-medium"><a class="link-900 text-decoration-none stretched-link" href="#!" data-i18n="coverage.region3.name">中部 / 北陆</a></h4>
@@ -162,7 +162,7 @@
               </div>
             </div>
             <div class="col-md-4 mb-4">
-              <div class="card overflow-hidden shadow"> <img class="card-img-top" src="static/picture/travelPlace/hokaido.jpg" alt="北海道/东北">
+              <div class="card overflow-hidden shadow h-100"> <img class="card-img-top" src="static/picture/travelPlace/hokaido.jpg" alt="北海道/东北">
                 <div class="card-body py-4 px-3">
                   <div class="d-flex flex-column flex-lg-row justify-content-between mb-3">
                     <h4 class="text-secondary fw-medium"><a class="link-900 text-decoration-none stretched-link" href="#!" data-i18n="coverage.region4.name">北海道 / 东北</a></h4>
@@ -172,7 +172,7 @@
               </div>
             </div>
             <div class="col-md-4 mb-4">
-              <div class="card overflow-hidden shadow"> <img class="card-img-top" src="static/picture/travelPlace/kyusyuu.jpg" alt="九州/冲绳">
+              <div class="card overflow-hidden shadow h-100"> <img class="card-img-top" src="static/picture/travelPlace/kyusyuu.jpg" alt="九州/冲绳">
                 <div class="card-body py-4 px-3">
                   <div class="d-flex flex-column flex-lg-row justify-content-between mb-3">
                     <h4 class="text-secondary fw-medium"><a class="link-900 text-decoration-none stretched-link" href="#!" data-i18n="coverage.region5.name">九州 / 冲绳</a></h4>
@@ -182,7 +182,7 @@
               </div>
             </div>
             <div class="col-md-4 mb-4">
-              <div class="card overflow-hidden shadow"> <img class="card-img-top" src="static/picture/travelPlace/siguo.jpeg" alt="四国">
+              <div class="card overflow-hidden shadow h-100"> <img class="card-img-top" src="static/picture/travelPlace/siguo.jpeg" alt="四国">
                 <div class="card-body py-4 px-3">
                   <div class="d-flex flex-column flex-lg-row justify-content-between mb-3">
                     <h4 class="text-secondary fw-medium"><a class="link-900 text-decoration-none stretched-link" href="#!" data-i18n="coverage.region6.name">四国</a></h4>
@@ -417,6 +417,20 @@
         height: 250px;
         object-fit: cover;
         width: 100%;
+      }
+      
+      /* Uniform card height */
+      #destination .card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      #destination .card-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
       }
       
       /* Consultation form styles */
