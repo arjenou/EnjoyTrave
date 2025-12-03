@@ -34,7 +34,17 @@
     <!-- ===============================================-->
     <main class="main" id="top">
       <nav class="navbar navbar-expand-lg navbar-light fixed-top py-5 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
-        <div class="container"><a class="navbar-brand" href=""><img src="static/picture/enjo-logo.jpg" height="60" alt="ENJO TRAVEL JAPAN"></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
+        <div class="container">
+          <div class="d-flex align-items-center w-100">
+            <a class="navbar-brand" href=""><img src="static/picture/enjo-logo.jpg" height="60" alt="ENJO TRAVEL JAPAN"></a>
+            <!-- Mobile: Language switcher between logo and hamburger menu -->
+            <div class="d-flex align-items-center gap-2 d-lg-none ms-auto me-3">
+              <a class="lang-switch fw-medium" href="#" data-lang="CN" style="font-size: 0.875rem;">CN</a>
+              <a class="lang-switch fw-medium" href="#" data-lang="JP" style="font-size: 0.875rem;">JP</a>
+              <a class="lang-switch fw-medium" href="#" data-lang="EN" style="font-size: 0.875rem;">EN</a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
+          </div>
           <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base align-items-lg-center align-items-start">
               <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#service" data-i18n="nav.value">价值</a></li>
@@ -42,21 +52,11 @@
               <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#booking" data-i18n="nav.capability">业务能力</a></li>
               <!-- <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#testimonial" data-i18n="nav.testimonial">客户评价</a></li> -->
               <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#contact" data-i18n="nav.contact">联系我们</a></li>
-              <!-- Desktop: Dropdown -->
-              <li class="nav-item dropdown px-3 px-lg-0 d-none d-lg-block"> <a class="d-inline-block ps-0 py-2 pe-3 text-decoration-none dropdown-toggle fw-medium" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-lang-label="CN">中文</a>
-                <ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg" style="border-radius:0.3rem;" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item lang-switch" href="#" data-lang="CN">中文</a></li>
-                  <li><a class="dropdown-item lang-switch" href="#" data-lang="JP">日本語</a></li>
-                  <li><a class="dropdown-item lang-switch" href="#" data-lang="EN">English</a></li>
-                </ul>
-              </li>
-              <!-- Mobile: Three buttons side by side -->
-              <li class="nav-item d-lg-none px-3">
-                <div class="d-flex align-items-center gap-2">
-                  <a class="nav-link lang-switch p-2 fw-medium" href="#" data-lang="CN" style="font-size: 0.875rem;">中文</a>
-                  <a class="nav-link lang-switch p-2 fw-medium" href="#" data-lang="JP" style="font-size: 0.875rem;">日本語</a>
-                  <a class="nav-link lang-switch p-2 fw-medium" href="#" data-lang="EN" style="font-size: 0.875rem;">English</a>
-                </div>
+              <!-- Desktop: Language switcher in menu -->
+              <li class="nav-item px-3 px-lg-0 d-none d-lg-flex align-items-center">
+                <a class="lang-switch fw-medium" href="#" data-lang="CN" style="font-size: 0.875rem;">CN</a>
+                <a class="lang-switch fw-medium" href="#" data-lang="JP" style="font-size: 0.875rem;">JP</a>
+                <a class="lang-switch fw-medium" href="#" data-lang="EN" style="font-size: 0.875rem;">EN</a>
               </li>
             </ul>
           </div>
@@ -433,23 +433,46 @@
         box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
       }
       
-      /* Mobile language switcher styles */
+      /* Language switcher styles */
       .lang-switch.active {
         color: #dc3545 !important;
         font-weight: 600 !important;
       }
       
+      .lang-switch {
+        padding: 0.4rem 0.6rem !important;
+        border-radius: 0.25rem;
+        transition: all 0.2s;
+        min-width: 2.2rem;
+        text-align: center;
+        display: inline-block !important;
+        color: #212529 !important;
+        text-decoration: none !important;
+        cursor: pointer;
+        font-size: 0.875rem;
+      }
+      
+      .lang-switch:hover {
+        background-color: rgba(220, 53, 69, 0.1);
+        color: #212529 !important;
+      }
+      
+      /* Mobile: Language buttons between logo and hamburger */
       @media (max-width: 991.98px) {
-        .nav-item .d-flex.gap-2 {
-          gap: 0.5rem !important;
+        .d-flex.gap-2 {
+          gap: 0.3rem !important;
         }
         .lang-switch {
-          padding: 0.25rem 0.5rem !important;
-          border-radius: 0.25rem;
-          transition: all 0.2s;
+          padding: 0.35rem 0.5rem !important;
+          font-size: 0.8rem !important;
+          min-width: 2rem;
         }
-        .lang-switch:hover {
-          background-color: rgba(220, 53, 69, 0.1);
+      }
+      
+      /* Desktop: Language buttons in menu */
+      @media (min-width: 992px) {
+        .nav-item.d-flex {
+          gap: 0.5rem !important;
         }
       }
     </style>
@@ -806,14 +829,7 @@
           }
         });
 
-        // Update language dropdown label
-        const langLabels = { CN: '中文', JP: '日本語', EN: 'English' };
-        const langDropdown = document.getElementById('navbarDropdown');
-        if (langDropdown) {
-          langDropdown.textContent = langLabels[lang];
-        }
-
-        // Update mobile language buttons active state
+        // Update language buttons active state
         document.querySelectorAll('.lang-switch').forEach(button => {
           const buttonLang = button.getAttribute('data-lang');
           if (buttonLang === lang) {
