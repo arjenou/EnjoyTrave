@@ -39,14 +39,14 @@
             <a class="navbar-brand" href=""><img src="static/picture/enjo-logo.jpg" height="60" alt="ENJO TRAVEL JAPAN"></a>
             <!-- Mobile: Language switcher between logo and hamburger menu -->
             <div class="d-flex align-items-center gap-2 d-lg-none ms-auto me-3">
-              <a class="lang-switch fw-medium" href="#" data-lang="CN" style="font-size: 0.875rem;">CN</a>
-              <a class="lang-switch fw-medium" href="#" data-lang="JP" style="font-size: 0.875rem;">JP</a>
               <a class="lang-switch fw-medium" href="#" data-lang="EN" style="font-size: 0.875rem;">EN</a>
+              <a class="lang-switch fw-medium" href="#" data-lang="JP" style="font-size: 0.875rem;">JP</a>
+              <a class="lang-switch fw-medium" href="#" data-lang="CN" style="font-size: 0.875rem;">CN</a>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
           </div>
           <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base align-items-lg-center align-items-start">
+            <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base align-items-lg-center align-items-start flex-lg-row flex-column">
               <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#service" data-i18n="nav.value">价值</a></li>
               <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#destination" data-i18n="nav.coverage">服务范围</a></li>
               <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#booking" data-i18n="nav.capability">业务能力</a></li>
@@ -54,9 +54,9 @@
               <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#contact" data-i18n="nav.contact">联系我们</a></li>
               <!-- Desktop: Language switcher in menu -->
               <li class="nav-item px-3 px-lg-0 d-none d-lg-flex align-items-center">
-                <a class="lang-switch fw-medium" href="#" data-lang="CN" style="font-size: 0.875rem;">CN</a>
-                <a class="lang-switch fw-medium" href="#" data-lang="JP" style="font-size: 0.875rem;">JP</a>
                 <a class="lang-switch fw-medium" href="#" data-lang="EN" style="font-size: 0.875rem;">EN</a>
+                <a class="lang-switch fw-medium" href="#" data-lang="JP" style="font-size: 0.875rem;">JP</a>
+                <a class="lang-switch fw-medium" href="#" data-lang="CN" style="font-size: 0.875rem;">CN</a>
               </li>
             </ul>
           </div>
@@ -473,6 +473,19 @@
       @media (min-width: 992px) {
         .nav-item.d-flex {
           gap: 0.5rem !important;
+        }
+        /* Ensure navigation items are horizontal on desktop */
+        .navbar-nav {
+          flex-direction: row !important;
+        }
+        .nav-item {
+          display: flex !important;
+          align-items: center !important;
+        }
+        .nav-link {
+          writing-mode: horizontal-tb !important;
+          text-orientation: mixed !important;
+          white-space: nowrap !important;
         }
       }
     </style>
