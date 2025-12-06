@@ -269,31 +269,48 @@
             </div>
             <div class="col-lg-1"></div>
             <div class="col-lg-6">
-              <div class="pe-7 ps-5 ps-lg-0">
-                <div class="carousel slide carousel-fade position-static" id="testimonialIndicator" data-bs-ride="carousel">
-                  <div class="carousel-indicators">
-                    <button class="active" type="button" data-bs-target="#testimonialIndicator" data-bs-slide-to="0" aria-current="true" aria-label="Testimonial 0"></button>
-                    <button type="button" data-bs-target="#testimonialIndicator" data-bs-slide-to="1" aria-label="Testimonial 1"></button>
-                    <button type="button" data-bs-target="#testimonialIndicator" data-bs-slide-to="2" aria-label="Testimonial 2"></button>
+              <!-- PC端：三张图片并排显示 -->
+              <div class="testimonial-images-desktop d-none d-lg-block">
+                <div class="row g-3">
+                  <div class="col-4">
+                    <img src="static/picture/comment/comment1.jpg" class="w-100 rounded-3 testimonial-img" alt="客户评价 1">
                   </div>
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <img src="static/picture/comment/comment1.jpg" class="d-block w-100 rounded-3" alt="客户评价 1" style="max-height: 350px; object-fit: contain;">
-                    </div>
-                    <div class="carousel-item">
-                      <img src="static/picture/comment/comment2.jpg" class="d-block w-100 rounded-3" alt="客户评价 2" style="max-height: 350px; object-fit: contain;">
-                    </div>
-                    <div class="carousel-item">
-                      <img src="static/picture/comment/comment3.jpg" class="d-block w-100 rounded-3" alt="客户评价 3" style="max-height: 350px; object-fit: contain;">
-                    </div>
+                  <div class="col-4">
+                    <img src="static/picture/comment/comment2.jpg" class="w-100 rounded-3 testimonial-img" alt="客户评价 2">
                   </div>
-                  <div class="carousel-navigation d-flex flex-column flex-between-center position-absolute end-0 top-lg-50 bottom-0 translate-middle-y z-index-1 me-3 me-lg-0" style="height:60px;width:20px;">
-                    <button class="carousel-control-prev position-static" type="button" data-bs-target="#testimonialIndicator" data-bs-slide="prev">
-                      <img src="static/picture/up.svg" width="16" alt="icon">
-                    </button>
-                    <button class="carousel-control-next position-static" type="button" data-bs-target="#testimonialIndicator" data-bs-slide="next">
-                      <img src="static/picture/down.svg" width="16" alt="icon">
-                    </button>
+                  <div class="col-4">
+                    <img src="static/picture/comment/comment3.jpg" class="w-100 rounded-3 testimonial-img" alt="客户评价 3">
+                  </div>
+                </div>
+              </div>
+              <!-- 移动端：保持轮播显示 -->
+              <div class="testimonial-carousel-mobile d-lg-none">
+                <div class="pe-7 ps-5 ps-lg-0">
+                  <div class="carousel slide carousel-fade position-static" id="testimonialIndicator" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                      <button class="active" type="button" data-bs-target="#testimonialIndicator" data-bs-slide-to="0" aria-current="true" aria-label="Testimonial 0"></button>
+                      <button type="button" data-bs-target="#testimonialIndicator" data-bs-slide-to="1" aria-label="Testimonial 1"></button>
+                      <button type="button" data-bs-target="#testimonialIndicator" data-bs-slide-to="2" aria-label="Testimonial 2"></button>
+                    </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="static/picture/comment/comment1.jpg" class="d-block w-100 rounded-3" alt="客户评价 1" style="max-height: 350px; object-fit: contain;">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="static/picture/comment/comment2.jpg" class="d-block w-100 rounded-3" alt="客户评价 2" style="max-height: 350px; object-fit: contain;">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="static/picture/comment/comment3.jpg" class="d-block w-100 rounded-3" alt="客户评价 3" style="max-height: 350px; object-fit: contain;">
+                      </div>
+                    </div>
+                    <div class="carousel-navigation d-flex flex-column flex-between-center position-absolute end-0 top-lg-50 bottom-0 translate-middle-y z-index-1 me-3 me-lg-0" style="height:60px;width:20px;">
+                      <button class="carousel-control-prev position-static" type="button" data-bs-target="#testimonialIndicator" data-bs-slide="prev">
+                        <img src="static/picture/up.svg" width="16" alt="icon">
+                      </button>
+                      <button class="carousel-control-next position-static" type="button" data-bs-target="#testimonialIndicator" data-bs-slide="next">
+                        <img src="static/picture/down.svg" width="16" alt="icon">
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -869,6 +886,38 @@
       
       #testimonial img {
         background: transparent !important;
+      }
+      
+      /* PC端：三张评价图片并排显示 */
+      .testimonial-images-desktop .testimonial-img {
+        max-height: 400px;
+        object-fit: contain;
+        width: 100%;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .testimonial-images-desktop .testimonial-img:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+      
+      /* PC端：确保三张图片高度一致 */
+      @media (min-width: 992px) {
+        .testimonial-images-desktop .row {
+          display: flex;
+          align-items: stretch;
+        }
+        
+        .testimonial-images-desktop .col-4 {
+          display: flex;
+          flex-direction: column;
+        }
+        
+        .testimonial-images-desktop .testimonial-img {
+          flex: 1;
+          height: 100%;
+          object-fit: contain;
+        }
       }
       
       /* Mobile: Optimize all images */
