@@ -413,6 +413,15 @@
         height: 45px !important;
       }
       
+      /* Mobile: Optimize logo size */
+      @media (max-width: 767.98px) {
+        .navbar .navbar-brand img {
+          height: 35px !important;
+          max-width: 100%;
+          object-fit: contain;
+        }
+      }
+      
       .navbar .nav-link {
         color: #212529 !important;
         font-weight: 500;
@@ -450,6 +459,15 @@
         background-attachment: fixed;
         background-repeat: no-repeat;
         z-index: 0;
+      }
+      
+      /* Mobile: Fix background attachment issue */
+      @media (max-width: 767.98px) {
+        .hero-bg-fixed {
+          background-attachment: scroll !important;
+          background-size: cover !important;
+          background-position: center center !important;
+        }
       }
       
       .hero-overlay {
@@ -629,6 +647,15 @@
         width: 100%;
       }
       
+      /* Mobile: Optimize destination card images */
+      @media (max-width: 767.98px) {
+        #destination .card-img-top {
+          height: 200px !important;
+          object-fit: cover;
+          width: 100%;
+        }
+      }
+      
       /* Uniform card height */
       #destination .card {
         height: 100%;
@@ -719,6 +746,18 @@
           font-size: 0.9rem !important;
           padding: 0.6rem 1.5rem !important;
         }
+        
+        /* Mobile: Optimize hero section height */
+        section[style*="padding-top: 6rem"] {
+          min-height: 100vh !important;
+          padding-top: 5rem !important;
+        }
+        
+        .hero-container {
+          height: auto !important;
+          min-height: calc(100vh - 5rem) !important;
+          padding: 2rem 0 !important;
+        }
       }
       
       /* Desktop: Language buttons in menu */
@@ -778,6 +817,62 @@
       
       #testimonial img {
         background: transparent !important;
+      }
+      
+      /* Mobile: Optimize all images */
+      @media (max-width: 767.98px) {
+        /* Service icons */
+        .service-card img {
+          max-width: 100%;
+          height: auto;
+        }
+        
+        /* Booking card image */
+        #booking .card img {
+          max-width: 100%;
+          height: auto;
+          object-fit: cover;
+        }
+        
+        /* Testimonial carousel images */
+        #testimonial .carousel-item img {
+          max-height: 300px !important;
+          object-fit: contain;
+          width: 100%;
+        }
+        
+        /* Footer logo */
+        footer img,
+        .col-lg-4 img {
+          max-width: 100%;
+          height: auto;
+        }
+        
+        /* Shape images */
+        .position-absolute img {
+          max-width: 100px !important;
+        }
+        
+        /* Icon images in capability section */
+        #booking .bg-primary img,
+        #booking .bg-danger img,
+        #booking .bg-info img {
+          width: 18px !important;
+          height: auto;
+        }
+        
+        /* Ensure all images are responsive */
+        img {
+          max-width: 100%;
+          height: auto;
+        }
+        
+        /* Exception for SVG icons that should maintain size */
+        .icon-item img,
+        .input-box-icon,
+        .navbar-toggler-icon {
+          max-width: none;
+        }
       }
       
     </style>
