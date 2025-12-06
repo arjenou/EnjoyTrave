@@ -69,7 +69,7 @@
         <div class="container hero-container" style="position: relative; z-index: 1;">
           <div class="row align-items-center hero-row">
             <div class="col-lg-8 text-start hero-content">
-              <h2 class="fw-bold mb-3 hero-subtitle" style="font-size: 2.5rem;">ENJO TRAVEL JAPAN</h2>
+              <h2 class="fw-bold mb-3 hero-subtitle" style="font-size: 4.5rem;">ENJO TRAVEL JAPAN</h2>
               <h1 class="hero-title hero-main-title" data-i18n="hero.title">让旅途的喜悦，无限延伸</h1>
               <p class="mb-4 fw-medium hero-description" data-i18n="hero.description">ENJO 源自 "ENJOY"，象征「永不终止的喜悦」。<br class="d-none d-xl-block">我们相信，旅行的意义不仅在抵达目的地，<br class="d-none d-xl-block">更在于一路上每一个令人难忘的瞬间。</p>
               <div class="text-start"> <a class="btn btn-primary btn-lg mb-3 mb-md-0 border-0 primary-btn-shadow" href="#service" role="button" data-i18n="hero.learnMore">了解更多</a>
@@ -528,6 +528,13 @@
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
       }
       
+      /* PC端：防止ENJO TRAVEL JAPAN换行 */
+      @media (min-width: 768px) {
+        .hero-subtitle {
+          white-space: nowrap;
+        }
+      }
+      
       .hero-main-title {
         color: #ffffff !important;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -536,6 +543,14 @@
       .hero-description {
         color: #f0f0f0 !important;
         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem !important;
+      }
+      
+      /* PC端：基础描述文字更大 */
+      @media (min-width: 768px) {
+        .hero-description {
+          font-size: 1.5rem !important;
+        }
       }
       
       /* English version - Joyful travel theme */
@@ -563,6 +578,7 @@
         text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
         line-height: 1.8;
         font-weight: 400;
+        font-size: 1.3rem !important;
       }
       
       /* Chinese version - Joyful travel theme */
@@ -603,6 +619,7 @@
         text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
         line-height: 1.8;
         font-weight: 400;
+        font-size: 1.3rem !important;
       }
       
       /* Japanese version - Joyful travel theme */
@@ -630,6 +647,16 @@
         text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
         line-height: 1.8;
         font-weight: 400;
+        font-size: 1.3rem !important;
+      }
+      
+      /* PC端：所有语言描述文字统一放大 */
+      @media (min-width: 768px) {
+        html[lang="en"] .hero-description,
+        html[lang="ja"] .hero-description,
+        html[lang="zh-CN"] .hero-description {
+          font-size: 1.5rem !important;
+        }
       }
       
       /* Hero button - Joyful travel theme */
@@ -744,7 +771,7 @@
       /* Mobile: Reduce banner content font sizes */
       @media (max-width: 767.98px) {
         .hero-subtitle {
-          font-size: 1.8rem !important;
+          font-size: 3rem !important;
         }
         
         .hero-main-title {
@@ -758,6 +785,13 @@
         
         .hero-description {
           font-size: 0.9rem !important;
+        }
+        
+        /* 移动端：所有语言描述文字统一放大 */
+        html[lang="en"] .hero-description,
+        html[lang="ja"] .hero-description,
+        html[lang="zh-CN"] .hero-description {
+          font-size: 1.1rem !important;
         }
         
         .hero-content .btn-primary {
@@ -1183,7 +1217,7 @@
           },
           hero: {
             title: "Delivering journeys where joy never ends",
-            description: "ENJO comes from \"ENJOY,\" symbolizing endless joy.<br class=\"d-none d-xl-block\">We believe that travel is not only about reaching a destination—<br class=\"d-none d-xl-block\">it is the encounters, emotions, and discoveries along the way that truly shape the journey.",
+            description: "ENJO comes from \"ENJOY,\" symbolizing endless joy.<br class=\"d-none d-xl-block\">We believe that travel is not only about reaching a destination<br class=\"d-none d-xl-block\">it is the encounters, emotions, and discoveries along the way that truly shape the journey.",
             learnMore: "Learn More"
           },
           value: {
