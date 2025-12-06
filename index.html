@@ -33,7 +33,7 @@
     <!--    Main Content-->
     <!-- ===============================================-->
     <main class="main" id="top">
-      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-5 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
         <div class="container">
           <div class="d-flex align-items-center w-100">
             <a class="navbar-brand" href=""><img src="static/picture/enjo-logo.png" height="50" alt="ENJO TRAVEL JAPAN"></a>
@@ -62,17 +62,17 @@
           </div>
         </div>
       </nav>
-      <section style="padding-top: 7rem;">
-        <div class="bg-holder" style="background-image:url(static/image/hero-bg.svg);"></div>
+      <section style="padding-top: 6rem; position: relative; overflow: hidden;">
+        <div class="bg-holder hero-bg-fixed" style="background-image:url(static/picture/background2.jpg);"></div>
+        <div class="hero-overlay"></div>
         <!--/.bg-holder-->
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-md-5 col-lg-6 order-0 order-md-1 text-end"><img class="pt-7 pt-md-0 hero-img" src="static/picture/hero-img.png" alt="hero-header"></div>
-            <div class="col-md-7 col-lg-6 text-md-start text-center py-6">
-              <h2 class="fw-bold text-danger mb-3" style="font-size: 2.5rem;">ENJO TRAVEL JAPAN</h2>
-              <h1 class="hero-title" data-i18n="hero.title">让旅途的喜悦，无限延伸</h1>
-              <p class="mb-4 fw-medium" data-i18n="hero.description">ENJO 源自 "ENJOY"，象征「永不终止的喜悦」。<br class="d-none d-xl-block">我们相信，旅行的意义不仅在抵达目的地，<br class="d-none d-xl-block">更在于一路上每一个令人难忘的瞬间。</p>
-              <div class="text-center text-md-start"> <a class="btn btn-primary btn-lg me-md-4 mb-3 mb-md-0 border-0 primary-btn-shadow" href="#service" role="button" data-i18n="hero.learnMore">了解更多</a>
+        <div class="container hero-container" style="position: relative; z-index: 1;">
+          <div class="row align-items-center hero-row">
+            <div class="col-lg-8 text-start hero-content">
+              <h2 class="fw-bold mb-3 hero-subtitle" style="font-size: 2.5rem;">ENJO TRAVEL JAPAN</h2>
+              <h1 class="hero-title hero-main-title" data-i18n="hero.title">让旅途的喜悦，无限延伸</h1>
+              <p class="mb-4 fw-medium hero-description" data-i18n="hero.description">ENJO 源自 "ENJOY"，象征「永不终止的喜悦」。<br class="d-none d-xl-block">我们相信，旅行的意义不仅在抵达目的地，<br class="d-none d-xl-block">更在于一路上每一个令人难忘的瞬间。</p>
+              <div class="text-start"> <a class="btn btn-primary btn-lg mb-3 mb-md-0 border-0 primary-btn-shadow" href="#service" role="button" data-i18n="hero.learnMore">了解更多</a>
               </div>
             </div>
           </div>
@@ -413,6 +413,231 @@
     
     <!-- Custom styles for destination cards -->
     <style>
+      /* Navigation bar optimization - white transparent */
+      .navbar {
+        background-color: rgba(255, 255, 255, 0.2) !important;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+        min-height: auto !important;
+      }
+      
+      .navbar .navbar-brand img {
+        height: 45px !important;
+      }
+      
+      .navbar .nav-link {
+        color: #212529 !important;
+        font-weight: 500;
+        text-shadow: none;
+        transition: color 0.3s ease;
+      }
+      
+      .navbar .nav-link:hover {
+        color: #dc3545 !important;
+        text-shadow: none;
+      }
+      
+      .navbar-toggler {
+        border-color: rgba(0, 0, 0, 0.1);
+      }
+      
+      .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(33, 37, 41, 0.75)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      }
+      
+      /* Mobile menu border */
+      .navbar-collapse.border-top {
+        border-top-color: rgba(0, 0, 0, 0.1) !important;
+      }
+      
+      /* Hero banner fixed background with overlay */
+      .hero-bg-fixed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        z-index: 0;
+      }
+      
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.3);
+        z-index: 0;
+      }
+      
+      section[style*="padding-top: 6rem"] {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+      }
+      
+      .hero-container {
+        height: calc(100vh - 6rem);
+        display: flex;
+        align-items: center;
+      }
+      
+      .hero-row {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+      
+      /* Hero content text styles */
+      .hero-content {
+        color: #ffffff;
+      }
+      
+      .hero-subtitle {
+        color: #ffffff !important;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+      
+      .hero-main-title {
+        color: #ffffff !important;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+      
+      .hero-description {
+        color: #f0f0f0 !important;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      }
+      
+      /* English version - Joyful travel theme */
+      html[lang="en"] .hero-subtitle {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        color: #ffffff !important;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 255, 255, 0.3);
+        letter-spacing: 0.05em;
+      }
+      
+      html[lang="en"] .hero-main-title {
+        font-family: 'Volkhov', serif;
+        font-weight: 700;
+        color: #ffffff !important;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 
+                     0 0 20px rgba(255, 255, 255, 0.3);
+        letter-spacing: 0.02em;
+        line-height: 1.2;
+      }
+      
+      html[lang="en"] .hero-description {
+        font-family: 'Poppins', sans-serif;
+        color: #ffffff !important;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+        line-height: 1.8;
+        font-weight: 400;
+      }
+      
+      /* Chinese version - Joyful travel theme */
+      html[lang="zh-CN"] .hero-subtitle {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        color: #ffffff !important;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 255, 255, 0.3);
+        letter-spacing: 0.05em;
+      }
+      
+      html[lang="zh-CN"] .hero-main-title {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        line-height: 1.3;
+      }
+      
+      /* First line color - 让旅途的喜悦， */
+      html[lang="zh-CN"] .hero-main-title .title-line1 {
+        color: #ffffff !important;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 
+                     0 0 20px rgba(255, 255, 255, 0.3);
+        display: inline-block;
+      }
+      
+      /* Second line color - 无限延伸 */
+      html[lang="zh-CN"] .hero-main-title .title-line2 {
+        color: #ffffff !important;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 
+                     0 0 20px rgba(255, 255, 255, 0.3);
+        display: inline-block;
+      }
+      
+      html[lang="zh-CN"] .hero-description {
+        font-family: 'Poppins', sans-serif;
+        color: #ffffff !important;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+        line-height: 1.8;
+        font-weight: 400;
+      }
+      
+      /* Japanese version - Joyful travel theme */
+      html[lang="ja"] .hero-subtitle {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        color: #ffffff !important;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 255, 255, 0.3);
+        letter-spacing: 0.05em;
+      }
+      
+      html[lang="ja"] .hero-main-title {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        color: #ffffff !important;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 
+                     0 0 20px rgba(255, 255, 255, 0.3);
+        letter-spacing: 0.05em;
+        line-height: 1.3;
+      }
+      
+      html[lang="ja"] .hero-description {
+        font-family: 'Poppins', sans-serif;
+        color: #ffffff !important;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+        line-height: 1.8;
+        font-weight: 400;
+      }
+      
+      /* Hero button - Joyful travel theme */
+      .hero-content .btn-primary {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+        border: none !important;
+        color: #ffffff !important;
+        font-weight: 600;
+        padding: 0.75rem 2rem;
+        border-radius: 50px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+      }
+      
+      .hero-content .btn-primary:hover {
+        background-color: rgba(255, 255, 255, 0.6) !important;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        transform: translateY(-2px);
+        color: #ffffff !important;
+      }
+      
+      .hero-content .btn-primary:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        background-color: rgba(255, 255, 255, 0.5) !important;
+        color: #ffffff !important;
+      }
+      
       #destination .card-img-top {
         height: 250px;
         object-fit: cover;
@@ -449,8 +674,9 @@
       
       /* Language switcher styles */
       .lang-switch.active {
-        color: #dc3545 !important;
+        color: #ffffff !important;
         font-weight: 600 !important;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
       }
       
       .lang-switch {
@@ -461,6 +687,7 @@
         text-align: center;
         display: inline-block !important;
         color: #212529 !important;
+        text-shadow: none;
         text-decoration: none !important;
         cursor: pointer;
         font-size: 0.875rem;
@@ -469,6 +696,7 @@
       .lang-switch:hover {
         background-color: rgba(220, 53, 69, 0.1);
         color: #212529 !important;
+        text-shadow: none;
       }
       
       /* Mobile: Language buttons between logo and hamburger */
@@ -480,6 +708,31 @@
           padding: 0.35rem 0.5rem !important;
           font-size: 0.8rem !important;
           min-width: 2rem;
+        }
+      }
+      
+      /* Mobile: Reduce banner content font sizes */
+      @media (max-width: 767.98px) {
+        .hero-subtitle {
+          font-size: 1.8rem !important;
+        }
+        
+        .hero-main-title {
+          font-size: 2rem !important;
+        }
+        
+        html[lang="en"] .hero-main-title,
+        html[lang="ja"] .hero-main-title {
+          font-size: 2rem !important;
+        }
+        
+        .hero-description {
+          font-size: 0.9rem !important;
+        }
+        
+        .hero-content .btn-primary {
+          font-size: 0.9rem !important;
+          padding: 0.6rem 1.5rem !important;
         }
       }
       
@@ -516,18 +769,17 @@
         }
       }
       
-      /* Adjust underline position to align with text bottom for English and Japanese */
-      html[lang="en"] .hero-title::before,
-      html[lang="ja"] .hero-title::before {
-        top: auto !important;
-        bottom: 0.3rem !important;
+      /* Remove underline from hero title */
+      .hero-title::before {
+        display: none !important;
+        content: none !important;
       }
       
-      @media (max-width: 991.98px) {
-        html[lang="en"] .hero-title::before,
-        html[lang="ja"] .hero-title::before {
-          bottom: 0.2rem !important;
-        }
+      html[lang="en"] .hero-title::before,
+      html[lang="ja"] .hero-title::before,
+      html[lang="zh-CN"] .hero-title::before {
+        display: none !important;
+        content: none !important;
       }
       
     </style>
@@ -545,7 +797,7 @@
             contact: "联系我们"
           },
           hero: {
-            title: "让旅途的喜悦，无限延伸",
+            title: "<span class=\"title-line1\">让旅途的喜悦，</span><br><span class=\"title-line2\">无限延伸</span>",
             description: "ENJO 源自 \"ENJOY\"，象征「永不终止的喜悦」。<br class=\"d-none d-xl-block\">我们相信，旅行的意义不仅在抵达目的地，<br class=\"d-none d-xl-block\">更在于一路上每一个令人难忘的瞬间。",
             learnMore: "了解更多"
           },
@@ -647,7 +899,7 @@
             contact: "お問い合わせ"
           },
           hero: {
-            title: "終わりのない旅の喜びを、世界中の旅人へ",
+            title: "終わりのない旅の喜びを、<br>世界中の旅人へ",
             description: "ENJO は \"ENJOY\" に由来し、『終わらない喜び』を表しています。<br class=\"d-none d-xl-block\">私たちは、旅の価値は目的地そのものだけでなく、<br class=\"d-none d-xl-block\">その道中の一つひとつの出会い、体験、感動にあると考えています。",
             learnMore: "詳しく見る"
           },
