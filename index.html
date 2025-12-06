@@ -50,7 +50,7 @@
               <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#service" data-i18n="nav.value">价值</a></li>
               <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#destination" data-i18n="nav.coverage">服务范围</a></li>
               <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#booking" data-i18n="nav.capability">业务能力</a></li>
-              <!-- <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#testimonial" data-i18n="nav.testimonial">客户评价</a></li> -->
+              <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#testimonial" data-i18n="nav.testimonial">客户评价</a></li>
               <li class="nav-item px-3 px-xl-4"><a class="nav-link fw-medium" aria-current="page" href="#contact" data-i18n="nav.contact">联系我们</a></li>
               <!-- Desktop: Language switcher in menu -->
               <li class="nav-item px-3 px-lg-0 d-none d-lg-flex align-items-center">
@@ -255,64 +255,49 @@
 
       <!-- ============================================-->
       <!-- <section> begin ============================-->
-      <!--
-      <section id="testimonial">
+      <section id="testimonial" class="pt-5">
         <div class="container">
           <div class="row">
             <div class="col-lg-5">
               <div class="mb-8 text-start">
-                <h5 class="text-secondary">客户评价 </h5>
-                <h3 class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">客户对我们的评价</h3>
+                <h5 class="text-secondary" data-i18n="testimonial.subtitle">客户评价</h5>
+                <h3 class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize" data-i18n="testimonial.title">客户对我们的评价</h3>
               </div>
             </div>
             <div class="col-lg-1"></div>
             <div class="col-lg-6">
               <div class="pe-7 ps-5 ps-lg-0">
                 <div class="carousel slide carousel-fade position-static" id="testimonialIndicator" data-bs-ride="carousel">
-                  <div class="carousel-indicators"> <button class="active" type="button" data-bs-target="#testimonialIndicator" data-bs-slide-to="0" aria-current="true" aria-label="Testimonial 0"></button><button class="false" type="button" data-bs-target="#testimonialIndicator" data-bs-slide-to="1" aria-current="true" aria-label="Testimonial 1"></button><button class="false" type="button" data-bs-target="#testimonialIndicator" data-bs-slide-to="2" aria-current="true" aria-label="Testimonial 2"></button></div>
+                  <div class="carousel-indicators">
+                    <button class="active" type="button" data-bs-target="#testimonialIndicator" data-bs-slide-to="0" aria-current="true" aria-label="Testimonial 0"></button>
+                    <button type="button" data-bs-target="#testimonialIndicator" data-bs-slide-to="1" aria-label="Testimonial 1"></button>
+                    <button type="button" data-bs-target="#testimonialIndicator" data-bs-slide-to="2" aria-label="Testimonial 2"></button>
+                  </div>
                   <div class="carousel-inner">
-                    <div class="carousel-item position-relative active">
-                      <div class="card shadow" style="border-radius:10px;">
-                        <div class="position-absolute start-0 top-0 translate-middle"> <img class="rounded-circle fit-cover" src="static/picture/author.png" height="65" width="65" alt=""></div>
-                        <div class="card-body p-4">
-                          <p class="fw-medium mb-4">&quot;On the Windows talking painted pasture yet its express parties use. Sure last upon he same as knew next. Of believed or diverted no.&quot;</p>
-                          <h5 class="text-secondary">Mike taylor</h5>
-                          <p class="fw-medium fs--1 mb-0">Lahore, Pakistan</p>
-                        </div>
-                      </div>
-                      <div class="card shadow-sm position-absolute top-0 z-index--1 mb-3 w-100 h-100" style="border-radius:10px;transform:translate(25px, 25px)"> </div>
+                    <div class="carousel-item active">
+                      <img src="static/picture/comment/comment1.jpg" class="d-block w-100 rounded-3" alt="客户评价 1" style="max-height: 350px; object-fit: contain;">
                     </div>
-                    <div class="carousel-item position-relative ">
-                      <div class="card shadow" style="border-radius:10px;">
-                        <div class="position-absolute start-0 top-0 translate-middle"> <img class="rounded-circle fit-cover" src="static/picture/author2.png" height="65" width="65" alt=""></div>
-                        <div class="card-body p-4">
-                          <p class="fw-medium mb-4">&quot;Jadoo is recognized as one of the finest travel agency in the world. When it came to planning a trip, I found them to be dependable.&quot;</p>
-                          <h5 class="text-secondary">Thomas Wagon</h5>
-                          <p class="fw-medium fs--1 mb-0">CEO of Red Button</p>
-                        </div>
-                      </div>
-                      <div class="card shadow-sm position-absolute top-0 z-index--1 mb-3 w-100 h-100" style="border-radius:10px;transform:translate(25px, 25px)"> </div>
+                    <div class="carousel-item">
+                      <img src="static/picture/comment/comment2.jpg" class="d-block w-100 rounded-3" alt="客户评价 2" style="max-height: 350px; object-fit: contain;">
                     </div>
-                    <div class="carousel-item position-relative ">
-                      <div class="card shadow" style="border-radius:10px;">
-                        <div class="position-absolute start-0 top-0 translate-middle"> <img class="rounded-circle fit-cover" src="static/picture/author3.png" height="65" width="65" alt=""></div>
-                        <div class="card-body p-4">
-                          <p class="fw-medium mb-4">&quot;On the Windows talking painted pasture yet its express parties use. Sure last upon he same as knew next. Of believed or diverted no.&quot;</p>
-                          <h5 class="text-secondary">Kelly Willium</h5>
-                          <p class="fw-medium fs--1 mb-0">Khulna, Bangladesh</p>
-                        </div>
-                      </div>
-                      <div class="card shadow-sm position-absolute top-0 z-index--1 mb-3 w-100 h-100" style="border-radius:10px;transform:translate(25px, 25px)"> </div>
+                    <div class="carousel-item">
+                      <img src="static/picture/comment/comment3.jpg" class="d-block w-100 rounded-3" alt="客户评价 3" style="max-height: 350px; object-fit: contain;">
                     </div>
                   </div>
-                  <div class="carousel-navigation d-flex flex-column flex-between-center position-absolute end-0 top-lg-50 bottom-0 translate-middle-y z-index-1 me-3 me-lg-0" style="height:60px;width:20px;"> <button class="carousel-control-prev position-static" type="button" data-bs-target="#testimonialIndicator" data-bs-slide="prev"><img src="static/picture/up.svg" width="16" alt="icon"></button><button class="carousel-control-next position-static" type="button" data-bs-target="#testimonialIndicator" data-bs-slide="next"><img src="static/picture/down.svg" width="16" alt="icon"></button></div>
+                  <div class="carousel-navigation d-flex flex-column flex-between-center position-absolute end-0 top-lg-50 bottom-0 translate-middle-y z-index-1 me-3 me-lg-0" style="height:60px;width:20px;">
+                    <button class="carousel-control-prev position-static" type="button" data-bs-target="#testimonialIndicator" data-bs-slide="prev">
+                      <img src="static/picture/up.svg" width="16" alt="icon">
+                    </button>
+                    <button class="carousel-control-next position-static" type="button" data-bs-target="#testimonialIndicator" data-bs-slide="next">
+                      <img src="static/picture/down.svg" width="16" alt="icon">
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div><!-- end of .container-->
       </section><!-- <section> close ============================-->
-      -->
       <!-- ============================================-->
 
       <!-- ============================================-->
@@ -782,6 +767,19 @@
         content: none !important;
       }
       
+      /* Testimonial section - remove white background */
+      #testimonial .carousel-item {
+        background: transparent !important;
+      }
+      
+      #testimonial .carousel-inner {
+        background: transparent !important;
+      }
+      
+      #testimonial img {
+        background: transparent !important;
+      }
+      
     </style>
     
     <!-- Multi-language Support -->
@@ -865,6 +863,10 @@
               title: "让旅途的喜悦，无限延伸",
               subtitle: "专业地接服务，让您的日本之旅更精彩"
             }
+          },
+          testimonial: {
+            subtitle: "客户评价",
+            title: "客户对我们的评价"
           },
           cta: {
             title: "我们不仅\"懂日本\"，<br>更懂如何把旅行真的做成",
@@ -968,6 +970,10 @@
               subtitle: "プロフェッショナルな現地手配サービスで、あなたの日本旅行をより素晴らしいものに"
             }
           },
+          testimonial: {
+            subtitle: "お客様の声",
+            title: "お客様からの評価"
+          },
           cta: {
             title: "私たちは「日本を知る」だけでなく、<br>旅行を本当に実現する方法を知っています",
             subtitle: "We know Japan. And we know how to make a trip truly happen.",
@@ -1069,6 +1075,10 @@
               title: "Delivering journeys where joy never ends",
               subtitle: "Professional DMC services to make your Japan trip more wonderful"
             }
+          },
+          testimonial: {
+            subtitle: "Testimonial",
+            title: "What Our Clients Say"
           },
           cta: {
             title: "We know Japan.<br>And we know how to make a trip truly happen.",
