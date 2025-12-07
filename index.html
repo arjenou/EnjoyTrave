@@ -418,6 +418,30 @@
     
     <!-- Custom styles for destination cards -->
     <style>
+      /* Prevent white background on overscroll */
+      html, body {
+        background-color: #ffffff;
+        overscroll-behavior: none;
+        overflow-x: hidden;
+      }
+      
+      body {
+        position: relative;
+      }
+      
+      main {
+        background-color: #ffffff;
+        position: relative;
+      }
+      
+      /* Prevent bounce/overscroll effect on mobile */
+      @supports (-webkit-overflow-scrolling: touch) {
+        html, body {
+          overscroll-behavior-y: none;
+          -webkit-overflow-scrolling: touch;
+        }
+      }
+      
       /* Navigation bar optimization - white transparent */
       .navbar {
         background-color: rgba(255, 255, 255, 0.2) !important;
