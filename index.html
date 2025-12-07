@@ -770,6 +770,14 @@
         box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
       }
       
+      /* 防止移动端输入时自动放大页面 */
+      @media (max-width: 767.98px) {
+        #consultationForm input.form-control,
+        #consultationForm textarea.form-control {
+          font-size: 16px !important;
+        }
+      }
+      
       /* Language switcher styles */
       .lang-switch.active {
         color: #ffffff !important;
