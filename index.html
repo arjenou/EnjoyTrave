@@ -1219,6 +1219,29 @@
         font-weight: 700;
       }
       
+      /* Form submit button states */
+      #consultationForm button[type="submit"] {
+        transition: all 0.3s ease;
+        min-width: 150px;
+      }
+      
+      #consultationForm button[type="submit"]:disabled {
+        opacity: 0.8;
+        cursor: not-allowed;
+      }
+      
+      #consultationForm button[type="submit"].btn-success {
+        background-color: #28a745 !important;
+        border-color: #28a745 !important;
+        color: #fff !important;
+      }
+      
+      #consultationForm button[type="submit"].btn-warning {
+        background-color: #ffc107 !important;
+        border-color: #ffc107 !important;
+        color: #212529 !important;
+      }
+      
     </style>
     
     <!-- Multi-language Support -->
@@ -1676,7 +1699,12 @@
             const submitButton = this.querySelector('button[type="submit"]');
             const originalButtonText = submitButton.textContent;
             submitButton.disabled = true;
-            submitButton.textContent = '發送中...';
+            const sendingText = currentLang === 'CN' 
+              ? '發送中...'
+              : currentLang === 'JP'
+              ? '送信中...'
+              : 'Sending...';
+            submitButton.textContent = sendingText;
             
             try {
               // Get form data
@@ -1734,35 +1762,52 @@
               const result = await response.json();
 
               if (result.success) {
-                // Show success message
+                // Show success state in button
+                submitButton.classList.remove('btn-danger');
+                submitButton.classList.add('btn-success');
                 const successMsg = currentLang === 'CN' 
-                  ? '諮詢已成功提交！我們已發送確認郵件至您的信箱。\n\n感謝您的諮詢，我們會盡快與您聯繫。'
+                  ? '✓ 提交成功！確認郵件已發送'
                   : currentLang === 'JP'
-                  ? 'お問い合わせが正常に送信されました！確認メールを送信いたしました。\n\nお問い合わせありがとうございます。できるだけ早くご連絡いたします。'
-                  : 'Your inquiry has been submitted successfully! We have sent a confirmation email to your inbox.\n\nThank you for your inquiry, we will contact you soon.';
-                
-                alert(successMsg);
+                  ? '✓ 送信成功！確認メールを送信しました'
+                  : '✓ Submitted! Confirmation email sent';
+                submitButton.textContent = successMsg;
+                submitButton.disabled = true;
                 
                 // Reset form
                 this.reset();
                 if (qrPreview) {
                   qrPreview.style.display = 'none';
                 }
+                
+                // Reset button after 5 seconds
+                setTimeout(() => {
+                  submitButton.classList.remove('btn-success');
+                  submitButton.classList.add('btn-danger');
+                  submitButton.disabled = false;
+                  submitButton.textContent = originalButtonText;
+                }, 5000);
               } else {
                 throw new Error(result.message || '發送失敗');
               }
             } catch (error) {
               console.error('Error submitting form:', error);
+              // Show error state in button
+              submitButton.classList.remove('btn-danger');
+              submitButton.classList.add('btn-warning');
               const errorMsg = currentLang === 'CN'
-                ? '發送失敗，請稍後再試或直接聯繫我們：enjotraveljapan@gmail.com'
+                ? '✗ 發送失敗，請重試'
                 : currentLang === 'JP'
-                ? '送信に失敗しました。後でもう一度お試しいただくか、直接お問い合わせください：enjotraveljapan@gmail.com'
-                : 'Failed to send. Please try again later or contact us directly: enjotraveljapan@gmail.com';
-              alert(errorMsg);
-            } finally {
-              // Re-enable submit button
-              submitButton.disabled = false;
-              submitButton.textContent = originalButtonText;
+                ? '✗ 送信失敗、再試してください'
+                : '✗ Failed, please try again';
+              submitButton.textContent = errorMsg;
+              
+              // Reset button after 3 seconds
+              setTimeout(() => {
+                submitButton.classList.remove('btn-warning');
+                submitButton.classList.add('btn-danger');
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
+              }, 3000);
             }
           });
         }
