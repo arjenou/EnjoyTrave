@@ -340,19 +340,90 @@
                     </div>
                   </div>
                   <div class="col-md-6">
-                    <div class="input-group-icon">
-                      <input class="form-control form-little-squirrel-control" type="tel" data-i18n-placeholder="cta.phonePlaceholder" placeholder="請輸入手機號碼" aria-label="phone" required>
-                      <img class="input-box-icon" src="static/picture/mail.svg" width="17" alt="phone">
+                    <div class="input-group phone-input-group">
+                      <select class="form-select form-little-squirrel-control country-code-select" id="countryCode" aria-label="country code" style="max-width: 85px; border-radius: 0.375rem 0 0 0.375rem;">
+                        <option value="+86" data-country="CN">+86</option>
+                        <option value="+81" data-country="JP">+81</option>
+                        <option value="+852" data-country="HK">+852</option>
+                        <option value="+886" data-country="TW">+886</option>
+                        <option value="+1" data-country="US">+1</option>
+                        <option value="+44" data-country="GB">+44</option>
+                        <option value="+65" data-country="SG">+65</option>
+                        <option value="+82" data-country="KR">+82</option>
+                        <option value="+84" data-country="VN">+84</option>
+                        <option value="+66" data-country="TH">+66</option>
+                        <option value="+60" data-country="MY">+60</option>
+                        <option value="+61" data-country="AU">+61</option>
+                        <option value="+33" data-country="FR">+33</option>
+                        <option value="+49" data-country="DE">+49</option>
+                        <option value="+39" data-country="IT">+39</option>
+                        <option value="+34" data-country="ES">+34</option>
+                        <option value="+7" data-country="RU">+7</option>
+                        <option value="+91" data-country="IN">+91</option>
+                        <option value="+55" data-country="BR">+55</option>
+                        <option value="+52" data-country="MX">+52</option>
+                      </select>
+                      <div class="input-group-icon flex-grow-1">
+                        <input class="form-control form-little-squirrel-control" type="tel" data-i18n-placeholder="cta.phonePlaceholder" placeholder="請輸入手機號碼" aria-label="phone" id="phoneNumber" required style="border-radius: 0 0.375rem 0.375rem 0;">
+                        <img class="input-box-icon" src="static/picture/mail.svg" width="17" alt="phone">
+                      </div>
                     </div>
                   </div>
                   <div class="col-12">
                     <div class="input-group-icon">
-                      <input class="form-control form-little-squirrel-control" type="email" data-i18n-placeholder="cta.emailPlaceholder" placeholder="請輸入郵箱地址" aria-label="email" required>
+                      <input class="form-control form-little-squirrel-control" type="email" data-i18n-placeholder="cta.emailPlaceholder" placeholder="請輸入郵箱地址 (必填)" aria-label="email" required>
                       <img class="input-box-icon" src="static/picture/mail.svg" width="17" alt="mail">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group-icon">
+                      <input class="form-control form-little-squirrel-control" type="text" data-i18n-placeholder="cta.whatsappPlaceholder" placeholder="WhatsApp" aria-label="whatsapp">
+                      <img class="input-box-icon" src="static/picture/mail.svg" width="17" alt="whatsapp">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group-icon">
+                      <input class="form-control form-little-squirrel-control" type="text" data-i18n-placeholder="cta.facebookPlaceholder" placeholder="Facebook" aria-label="facebook">
+                      <img class="input-box-icon" src="static/picture/mail.svg" width="17" alt="facebook">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group-icon">
+                      <input class="form-control form-little-squirrel-control" type="text" data-i18n-placeholder="cta.viberPlaceholder" placeholder="Viber" aria-label="viber">
+                      <img class="input-box-icon" src="static/picture/mail.svg" width="17" alt="viber">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group-icon">
+                      <input class="form-control form-little-squirrel-control" type="text" data-i18n-placeholder="cta.linePlaceholder" placeholder="Line" aria-label="line">
+                      <img class="input-box-icon" src="static/picture/mail.svg" width="17" alt="line">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group-icon">
+                      <input class="form-control form-little-squirrel-control" type="text" data-i18n-placeholder="cta.instagramPlaceholder" placeholder="Instagram" aria-label="instagram">
+                      <img class="input-box-icon" src="static/picture/mail.svg" width="17" alt="instagram">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="input-group-icon">
+                      <input class="form-control form-little-squirrel-control" type="text" data-i18n-placeholder="cta.wechatPlaceholder" placeholder="WeChat" aria-label="wechat">
+                      <img class="input-box-icon" src="static/picture/mail.svg" width="17" alt="wechat">
                     </div>
                   </div>
                   <div class="col-12">
                     <textarea class="form-control form-little-squirrel-control" rows="4" data-i18n-placeholder="cta.messagePlaceholder" placeholder="請輸入諮詢內容" aria-label="message" required style="resize: vertical; min-height: 100px;"></textarea>
+                  </div>
+                  <div class="col-12">
+                    <div class="qr-upload-section">
+                      <p class="qr-upload-description mb-3" data-i18n="cta.qrUploadDescription">您可以通過上傳您的SNS二維碼，我們來聯繫您</p>
+                      <div class="qr-upload-wrapper">
+                        <input type="file" class="form-control form-little-squirrel-control" id="qrCodeUpload" accept="image/*" aria-label="upload qr code" style="padding: 0.75rem 1rem;">
+                        <div class="qr-preview mt-3" id="qrPreview" style="display: none;">
+                          <img id="qrPreviewImage" src="" alt="QR Code Preview" style="max-width: 200px; max-height: 200px; border-radius: 0.375rem; border: 1px solid #e9ecef;">
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div class="col-12 text-center">
                     <button class="btn btn-danger orange-gradient-btn fs--1" type="submit" data-i18n="cta.submit">提交諮詢</button>
@@ -769,10 +840,89 @@
         box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
       }
       
+      /* QR code upload section */
+      .qr-upload-section {
+        margin-top: 1rem;
+      }
+      
+      .qr-upload-description {
+        font-size: 0.875rem;
+        color: #6c757d;
+        text-align: center;
+        margin-bottom: 0.75rem;
+      }
+      
+      .qr-upload-wrapper input[type="file"] {
+        border: 1px solid #e9ecef;
+        border-radius: 0.375rem;
+        cursor: pointer;
+      }
+      
+      .qr-upload-wrapper input[type="file"]:focus {
+        border-color: #86b7fe;
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+      }
+      
+      .qr-preview {
+        text-align: center;
+      }
+      
+      .qr-preview img {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      
+      /* Phone input with country code selector */
+      .phone-input-group {
+        display: flex;
+        align-items: stretch;
+      }
+      
+      .phone-input-group .country-code-select {
+        border: 1px solid #ffffff;
+        border-right: none;
+        padding: 0.75rem 0.4rem;
+        font-size: 0.875rem;
+        background-color: #fff;
+        color: #212529;
+        cursor: pointer;
+      }
+      
+      .phone-input-group .country-code-select:focus {
+        border-color: #ffffff;
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+      }
+      
+      .phone-input-group .input-group-icon {
+        flex: 1;
+        position: relative;
+      }
+      
+      .phone-input-group .input-group-icon .form-control {
+        border-left: none;
+        border-color: #ffffff;
+      }
+      
+      .phone-input-group .input-group-icon .form-control:focus {
+        border-left: 1px solid #ffffff;
+        border-color: #ffffff;
+      }
+      
+      /* Mobile: Adjust country code selector width */
+      @media (max-width: 767.98px) {
+        .phone-input-group .country-code-select {
+          max-width: 75px !important;
+          font-size: 0.8rem;
+          padding: 0.75rem 0.25rem;
+        }
+      }
+      
       /* 防止移动端输入时自动放大页面 */
       @media (max-width: 767.98px) {
         #consultationForm input.form-control,
-        #consultationForm textarea.form-control {
+        #consultationForm textarea.form-control,
+        #consultationForm select.form-select {
           font-size: 16px !important;
         }
       }
@@ -1162,8 +1312,15 @@
             subtitle: "We know Japan. And we know how to make a trip truly happen.",
             namePlaceholder: "請輸入姓名",
             phonePlaceholder: "請輸入手機號碼",
-            emailPlaceholder: "請輸入郵箱地址",
+            emailPlaceholder: "請輸入郵箱地址 (必填)",
+            whatsappPlaceholder: "WhatsApp",
+            facebookPlaceholder: "Facebook",
+            viberPlaceholder: "Viber",
+            linePlaceholder: "Line",
+            instagramPlaceholder: "Instagram",
+            wechatPlaceholder: "WeChat",
             messagePlaceholder: "請輸入諮詢內容",
+            qrUploadDescription: "您可以通過上傳您的SNS二維碼，我們來聯繫您",
             submit: "提交諮詢"
           },
           footer: {
@@ -1268,8 +1425,15 @@
             subtitle: "We know Japan. And we know how to make a trip truly happen.",
             namePlaceholder: "お名前を入力",
             phonePlaceholder: "電話番号を入力",
-            emailPlaceholder: "メールアドレスを入力",
+            emailPlaceholder: "メールアドレスを入力 (必須)",
+            whatsappPlaceholder: "WhatsApp",
+            facebookPlaceholder: "Facebook",
+            viberPlaceholder: "Viber",
+            linePlaceholder: "Line",
+            instagramPlaceholder: "Instagram",
+            wechatPlaceholder: "WeChat",
             messagePlaceholder: "お問い合わせ内容を入力",
+            qrUploadDescription: "SNSのQRコードをアップロードしていただければ、こちらからご連絡いたします",
             submit: "送信"
           },
           footer: {
@@ -1374,8 +1538,15 @@
             subtitle: "We know Japan. And we know how to make a trip truly happen.",
             namePlaceholder: "Enter your name",
             phonePlaceholder: "Enter phone number",
-            emailPlaceholder: "Enter email address",
+            emailPlaceholder: "Enter email address (Required)",
+            whatsappPlaceholder: "WhatsApp",
+            facebookPlaceholder: "Facebook",
+            viberPlaceholder: "Viber",
+            linePlaceholder: "Line",
+            instagramPlaceholder: "Instagram",
+            wechatPlaceholder: "WeChat",
             messagePlaceholder: "Enter your inquiry",
+            qrUploadDescription: "You can upload your SNS QR code and we will contact you",
             submit: "Submit Inquiry"
           },
           footer: {
@@ -1447,6 +1618,18 @@
 
         // Update HTML lang attribute
         document.documentElement.lang = lang === 'CN' ? 'zh-CN' : lang === 'JP' ? 'ja' : 'en';
+        
+        // Set default country code based on language
+        const countryCodeSelect = document.getElementById('countryCode');
+        if (countryCodeSelect) {
+          let defaultCode = '+81'; // Default to Japan
+          if (lang === 'CN') {
+            defaultCode = '+86'; // China for Chinese
+          } else if (lang === 'JP') {
+            defaultCode = '+81'; // Japan for Japanese
+          }
+          countryCodeSelect.value = defaultCode;
+        }
       }
 
       // Initialize language on page load
@@ -1462,6 +1645,27 @@
           });
         });
 
+        // Handle QR code image preview
+        const qrCodeUpload = document.getElementById('qrCodeUpload');
+        const qrPreview = document.getElementById('qrPreview');
+        const qrPreviewImage = document.getElementById('qrPreviewImage');
+        
+        if (qrCodeUpload) {
+          qrCodeUpload.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+              const reader = new FileReader();
+              reader.onload = function(e) {
+                qrPreviewImage.src = e.target.result;
+                qrPreview.style.display = 'block';
+              };
+              reader.readAsDataURL(file);
+            } else {
+              qrPreview.style.display = 'none';
+            }
+          });
+        }
+
         // Handle consultation form submission
         const consultationForm = document.getElementById('consultationForm');
         if (consultationForm) {
@@ -1470,10 +1674,24 @@
             
             // Get form data
             const formData = new FormData(this);
-            const name = this.querySelector('input[type="text"]').value;
-            const phone = this.querySelector('input[type="tel"]').value;
-            const email = this.querySelector('input[type="email"]').value;
+            const name = this.querySelector('input[aria-label="name"]').value;
+            const countryCode = document.getElementById('countryCode').value;
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const phone = countryCode + ' ' + phoneNumber; // Combine country code and phone number
+            const email = this.querySelector('input[aria-label="email"]').value;
+            const whatsapp = this.querySelector('input[aria-label="whatsapp"]').value;
+            const facebook = this.querySelector('input[aria-label="facebook"]').value;
+            const viber = this.querySelector('input[aria-label="viber"]').value;
+            const line = this.querySelector('input[aria-label="line"]').value;
+            const instagram = this.querySelector('input[aria-label="instagram"]').value;
+            const wechat = this.querySelector('input[aria-label="wechat"]').value;
             const message = this.querySelector('textarea').value;
+            
+            // Add QR code file if uploaded
+            const qrFile = qrCodeUpload.files[0];
+            if (qrFile) {
+              formData.append('qrCode', qrFile);
+            }
 
             // Here you can add code to send the data to your backend
             // For example: fetch('/api/contact', { method: 'POST', body: formData })
@@ -1483,6 +1701,9 @@
             
             // Reset form
             this.reset();
+            if (qrPreview) {
+              qrPreview.style.display = 'none';
+            }
           });
         }
       });
