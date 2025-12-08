@@ -44,6 +44,42 @@
     <!-- ===============================================-->
     <link href="static/css/theme.min.css" rel="stylesheet" media="all">
     <link href="static/css/css2.css" rel="stylesheet" media="all">
+    
+    <!-- Critical banner styles to prevent FOUC -->
+    <style>
+      /* Hero banner fixed background with overlay - 关键样式提前加载 */
+      .hero-bg-fixed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-color: #6b7a8f; /* 占位背景色，防止图片加载前的闪烁 */
+        z-index: 0;
+      }
+      
+      @media (max-width: 767.98px) {
+        .hero-bg-fixed {
+          background-attachment: scroll !important;
+          background-size: cover !important;
+          background-position: center center !important;
+        }
+      }
+      
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.3);
+        z-index: 0;
+      }
+    </style>
   </head>
 
   <body>
@@ -578,40 +614,7 @@
         border-top-color: rgba(0, 0, 0, 0.1) !important;
       }
       
-      /* Hero banner fixed background with overlay */
-      .hero-bg-fixed {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        background-color: #6b7a8f; /* 占位背景色，防止图片加载前的闪烁 */
-        z-index: 0;
-      }
-      
-      /* Mobile: Fix background attachment issue */
-      @media (max-width: 767.98px) {
-        .hero-bg-fixed {
-          background-attachment: scroll !important;
-          background-size: cover !important;
-          background-position: center center !important;
-        }
-      }
-      
-      .hero-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.3);
-        z-index: 0;
-      }
-      
+      /* Hero banner styles (关键样式已移至 head，此处保留其他样式) */
       section[style*="padding-top: 6rem"] {
         position: relative;
         min-height: 100vh;
@@ -669,17 +672,11 @@
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
       }
       
+      /* Hero description - 基础样式 */
       .hero-description {
         color: #f0f0f0 !important;
         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         font-size: 1.3rem !important;
-      }
-      
-      /* PC端：基礎描述文字更大 */
-      @media (min-width: 768px) {
-        .hero-description {
-          font-size: 1.5rem !important;
-        }
       }
       
       /* English version - Joyful travel theme */
@@ -707,7 +704,6 @@
         text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
         line-height: 1.8;
         font-weight: 400;
-        font-size: 1.3rem !important;
       }
       
       /* Chinese version - Joyful travel theme */
@@ -748,7 +744,6 @@
         text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
         line-height: 1.8;
         font-weight: 400;
-        font-size: 1.3rem !important;
       }
       
       /* Japanese version - Joyful travel theme */
@@ -776,11 +771,11 @@
         text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
         line-height: 1.8;
         font-weight: 400;
-        font-size: 1.3rem !important;
       }
       
-      /* PC端：所有語言描述文字統一放大 */
+      /* PC端：所有語言描述文字統一放大（合并重复的媒体查询） */
       @media (min-width: 768px) {
+        .hero-description,
         html[lang="en"] .hero-description,
         html[lang="ja"] .hero-description,
         html[lang="zh-CN"] .hero-description {
@@ -999,11 +994,8 @@
           font-size: 2rem !important;
         }
         
-        .hero-description {
-          font-size: 0.9rem !important;
-        }
-        
-        /* 移動端：所有語言描述文字統一放大 */
+        /* 移動端：所有語言描述文字統一放大（合并重复定义） */
+        .hero-description,
         html[lang="en"] .hero-description,
         html[lang="ja"] .hero-description,
         html[lang="zh-CN"] .hero-description {
