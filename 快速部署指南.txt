@@ -1,0 +1,77 @@
+==========================================
+Vercel 快速部署指南
+==========================================
+
+【環境變數設置】
+
+在 Vercel Dashboard 中設置以下環境變數：
+
+1. EMAIL_USER
+   值：enjotraveljapan@gmail.com
+
+2. EMAIL_APP_PASSWORD
+   值：nhlkmcjzczqwwwh
+   （原始應用密碼：nhlk mcjs zczq wwwh，已去掉空格）
+
+【部署步驟】
+
+方法一：通過 Vercel Dashboard（推薦）
+
+1. 訪問 https://vercel.com 並登入
+2. 點擊「Add New Project」
+3. 連接您的 Git 倉庫（GitHub/GitLab/Bitbucket）
+4. 在「Environment Variables」中添加：
+   - EMAIL_USER = enjotraveljapan@gmail.com
+   - EMAIL_APP_PASSWORD = nhlkmcjzczqwwwh
+5. 點擊「Deploy」
+
+
+方法二：通過 Vercel CLI
+
+1. 安裝 Vercel CLI：
+   npm i -g vercel
+
+2. 登入 Vercel：
+   vercel login
+
+3. 在項目目錄執行：
+   vercel
+
+4. 設置環境變數：
+   vercel env add EMAIL_USER
+   vercel env add EMAIL_APP_PASSWORD
+   
+   輸入值時：
+   - EMAIL_USER: enjotraveljapan@gmail.com
+   - EMAIL_APP_PASSWORD: nhlkmcjzczqwwwh
+
+5. 生產環境部署：
+   vercel --prod
+
+
+【驗證部署】
+
+1. 訪問您的 Vercel 域名
+2. 填寫表單並提交
+3. 檢查：
+   ✓ 用戶郵箱收到確認郵件
+   ✓ enjotraveljapan@gmail.com 收到通知郵件
+
+
+【重要提示】
+
+✓ 確保所有環境（Production、Preview、Development）都設置了環境變數
+✓ 應用密碼必須去掉空格：nhlkmcjzczqwwwh
+✓ 如果郵件發送失敗，檢查 Vercel Dashboard → Functions → Logs
+
+
+【項目結構】
+
+api/
+  └── contact.js      # Vercel 無服務器函數
+vercel.json           # Vercel 配置文件
+package.json          # 依賴配置
+index.html            # 主頁面
+
+
+==========================================

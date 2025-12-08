@@ -1669,40 +1669,100 @@
         // Handle consultation form submission
         const consultationForm = document.getElementById('consultationForm');
         if (consultationForm) {
-          consultationForm.addEventListener('submit', function(e) {
+          consultationForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Get form data
-            const formData = new FormData(this);
-            const name = this.querySelector('input[aria-label="name"]').value;
-            const countryCode = document.getElementById('countryCode').value;
-            const phoneNumber = document.getElementById('phoneNumber').value;
-            const phone = countryCode + ' ' + phoneNumber; // Combine country code and phone number
-            const email = this.querySelector('input[aria-label="email"]').value;
-            const whatsapp = this.querySelector('input[aria-label="whatsapp"]').value;
-            const facebook = this.querySelector('input[aria-label="facebook"]').value;
-            const viber = this.querySelector('input[aria-label="viber"]').value;
-            const line = this.querySelector('input[aria-label="line"]').value;
-            const instagram = this.querySelector('input[aria-label="instagram"]').value;
-            const wechat = this.querySelector('input[aria-label="wechat"]').value;
-            const message = this.querySelector('textarea').value;
+            // Disable submit button to prevent double submission
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+            submitButton.disabled = true;
+            submitButton.textContent = '發送中...';
             
-            // Add QR code file if uploaded
-            const qrFile = qrCodeUpload.files[0];
-            if (qrFile) {
-              formData.append('qrCode', qrFile);
-            }
+            try {
+              // Get form data
+              const formData = new FormData();
+              const name = this.querySelector('input[aria-label="name"]').value;
+              const countryCode = document.getElementById('countryCode').value;
+              const phoneNumber = document.getElementById('phoneNumber').value;
+              const phone = countryCode + ' ' + phoneNumber; // Combine country code and phone number
+              const email = this.querySelector('input[aria-label="email"]').value;
+              const whatsapp = this.querySelector('input[aria-label="whatsapp"]').value;
+              const facebook = this.querySelector('input[aria-label="facebook"]').value;
+              const viber = this.querySelector('input[aria-label="viber"]').value;
+              const line = this.querySelector('input[aria-label="line"]').value;
+              const instagram = this.querySelector('input[aria-label="instagram"]').value;
+              const wechat = this.querySelector('input[aria-label="wechat"]').value;
+              const message = this.querySelector('textarea').value;
+              
+              // Prepare data object
+              const data = {
+                name: name,
+                phone: phone,
+                email: email,
+                whatsapp: whatsapp || '',
+                facebook: facebook || '',
+                viber: viber || '',
+                line: line || '',
+                instagram: instagram || '',
+                wechat: wechat || '',
+                message: message
+              };
+              
+              // Add QR code file if uploaded (convert to base64)
+              const qrFile = qrCodeUpload.files[0];
+              if (qrFile) {
+                const reader = new FileReader();
+                await new Promise((resolve, reject) => {
+                  reader.onload = () => {
+                    data.qrCode = reader.result; // base64 string
+                    resolve();
+                  };
+                  reader.onerror = reject;
+                  reader.readAsDataURL(qrFile);
+                });
+              }
 
-            // Here you can add code to send the data to your backend
-            // For example: fetch('/api/contact', { method: 'POST', body: formData })
-            
-            // Show success message (you can customize this)
-            alert('感謝您的諮詢！我們會盡快與您聯繫。\n\nThank you for your inquiry! We will contact you soon.');
-            
-            // Reset form
-            this.reset();
-            if (qrPreview) {
-              qrPreview.style.display = 'none';
+              // Send data to backend API as JSON
+              const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+              });
+
+              const result = await response.json();
+
+              if (result.success) {
+                // Show success message
+                const successMsg = currentLang === 'CN' 
+                  ? '諮詢已成功提交！我們已發送確認郵件至您的信箱。\n\n感謝您的諮詢，我們會盡快與您聯繫。'
+                  : currentLang === 'JP'
+                  ? 'お問い合わせが正常に送信されました！確認メールを送信いたしました。\n\nお問い合わせありがとうございます。できるだけ早くご連絡いたします。'
+                  : 'Your inquiry has been submitted successfully! We have sent a confirmation email to your inbox.\n\nThank you for your inquiry, we will contact you soon.';
+                
+                alert(successMsg);
+                
+                // Reset form
+                this.reset();
+                if (qrPreview) {
+                  qrPreview.style.display = 'none';
+                }
+              } else {
+                throw new Error(result.message || '發送失敗');
+              }
+            } catch (error) {
+              console.error('Error submitting form:', error);
+              const errorMsg = currentLang === 'CN'
+                ? '發送失敗，請稍後再試或直接聯繫我們：enjotraveljapan@gmail.com'
+                : currentLang === 'JP'
+                ? '送信に失敗しました。後でもう一度お試しいただくか、直接お問い合わせください：enjotraveljapan@gmail.com'
+                : 'Failed to send. Please try again later or contact us directly: enjotraveljapan@gmail.com';
+              alert(errorMsg);
+            } finally {
+              // Re-enable submit button
+              submitButton.disabled = false;
+              submitButton.textContent = originalButtonText;
             }
           });
         }

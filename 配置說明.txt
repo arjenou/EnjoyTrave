@@ -1,0 +1,82 @@
+==========================================
+ENJO TRAVEL JAPAN 郵件功能配置說明
+==========================================
+
+【重要】請按照以下步驟配置郵件發送功能：
+
+1. 安裝 Node.js 依賴
+   --------------------
+   在終端機中執行：
+   npm install
+
+
+2. 獲取 Gmail 應用密碼
+   --------------------
+   a) 登入您的 Google 帳號（enjotraveljapan@gmail.com）
+   b) 前往：https://myaccount.google.com/apppasswords
+   c) 如果沒有看到「應用程式密碼」選項，請先啟用「兩步驟驗證」：
+      - 前往：https://myaccount.google.com/security
+      - 啟用「兩步驟驗證」
+   d) 在「應用程式密碼」頁面：
+      - 選擇「郵件」
+      - 選擇「其他（自訂名稱）」
+      - 輸入名稱：ENJO Travel Website
+      - 點擊「產生」
+      - 複製生成的 16 位應用密碼（不含空格）
+
+
+3. 創建 .env 配置文件
+   --------------------
+   在項目根目錄創建一個名為 .env 的文件（注意：文件名前面有個點）
+   
+   文件內容如下：
+   
+   EMAIL_USER=enjotraveljapan@gmail.com
+   EMAIL_APP_PASSWORD=這裡填入您的16位應用密碼
+   PORT=3000
+   
+   例如：
+   EMAIL_USER=enjotraveljapan@gmail.com
+   EMAIL_APP_PASSWORD=abcd efgh ijkl mnop
+   PORT=3000
+   
+   （注意：應用密碼可以包含空格，但建議去掉空格）
+
+
+4. 啟動服務器
+   --------------------
+   執行以下命令：
+   npm start
+   
+   服務器將在 http://localhost:3000 運行
+   
+   或者使用開發模式（代碼修改後自動重啟）：
+   npm run dev
+
+
+5. 測試功能
+   --------------------
+   a) 打開瀏覽器訪問 http://localhost:3000
+   b) 填寫表單並提交
+   c) 檢查：
+      - 用戶填寫的郵箱是否收到確認郵件
+      - enjotraveljapan@gmail.com 是否收到通知郵件
+
+
+【常見問題】
+-----------
+Q: 郵件發送失敗怎麼辦？
+A: 請檢查：
+   1. .env 文件是否存在且配置正確
+   2. Gmail 應用密碼是否正確（16位字符）
+   3. Gmail 帳號是否已啟用兩步驟驗證
+   4. 檢查服務器終端機的錯誤訊息
+
+Q: 如何部署到線上服務器？
+A: 請參考 README.md 文件中的「部署說明」章節
+
+Q: 如何修改郵件內容？
+A: 編輯 server.js 文件中的 adminMailOptions 和 customerMailOptions
+
+==========================================
+
