@@ -2,6 +2,10 @@
 .env
 .env.local
 
+# 依赖文件
+node_modules/
+package-lock.json
+
 # macOS
 .DS_Store
 .DS_Store?
