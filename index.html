@@ -396,38 +396,85 @@
             </div>
             <div class="col-lg-1"></div>
             <div class="col-lg-6">
-              <!-- PC端：三張圖片並排顯示 -->
-              <div class="testimonial-images-desktop d-none d-lg-block">
-                <div class="row g-3">
-                  <div class="col-4">
-                    <img src="static/picture/comment/comment1.jpg" class="w-100 rounded-3 testimonial-img" alt="客戶評價 1" loading="lazy">
+              <!-- PC端：六張圖片輪播，每次顯示三張 -->
+              <div class="testimonial-images-desktop d-none d-lg-block position-relative">
+                <div class="carousel slide" id="testimonialCarouselDesktop" data-bs-ride="carousel" data-bs-interval="5000" data-bs-pause="hover">
+                  <div class="carousel-inner">
+                    <!-- 第一組：comment1, comment2, comment3 -->
+                    <div class="carousel-item active">
+                      <div class="row g-3">
+                        <div class="col-4">
+                          <img src="static/picture/comment/comment1.jpg" class="w-100 rounded-3 testimonial-img" alt="客戶評價 1" loading="lazy">
+                        </div>
+                        <div class="col-4">
+                          <img src="static/picture/comment/comment2.jpg" class="w-100 rounded-3 testimonial-img" alt="客戶評價 2" loading="lazy">
+                        </div>
+                        <div class="col-4">
+                          <img src="static/picture/comment/comment3.jpg" class="w-100 rounded-3 testimonial-img" alt="客戶評價 3" loading="lazy">
+                        </div>
+                      </div>
+                    </div>
+                    <!-- 第二組：comment4, comment5, comment6 -->
+                    <div class="carousel-item">
+                      <div class="row g-3">
+                        <div class="col-4">
+                          <img src="static/picture/comment/comment4.jpg" class="w-100 rounded-3 testimonial-img" alt="客戶評價 4" loading="lazy">
+                        </div>
+                        <div class="col-4">
+                          <img src="static/picture/comment/comment5.jpg" class="w-100 rounded-3 testimonial-img" alt="客戶評價 5" loading="lazy">
+                        </div>
+                        <div class="col-4">
+                          <img src="static/picture/comment/comment6.jpg" class="w-100 rounded-3 testimonial-img" alt="客戶評價 6" loading="lazy">
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="col-4">
-                    <img src="static/picture/comment/comment2.jpg" class="w-100 rounded-3 testimonial-img" alt="客戶評價 2" loading="lazy">
-                  </div>
-                  <div class="col-4">
-                    <img src="static/picture/comment/comment3.jpg" class="w-100 rounded-3 testimonial-img" alt="客戶評價 3" loading="lazy">
+                  <!-- 左右控制按鈕 -->
+                  <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarouselDesktop" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarouselDesktop" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                  <!-- 指示器 -->
+                  <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#testimonialCarouselDesktop" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#testimonialCarouselDesktop" data-bs-slide-to="1" aria-label="Slide 2"></button>
                   </div>
                 </div>
               </div>
-              <!-- 移動端：保持輪播顯示 -->
+              <!-- 移動端：六張圖片單張輪播 -->
               <div class="testimonial-carousel-mobile d-lg-none">
                 <div class="pe-7 ps-5 ps-lg-0">
-                  <div class="carousel slide carousel-fade position-static" id="testimonialIndicator" data-bs-ride="carousel">
+                  <div class="carousel slide carousel-fade position-static" id="testimonialIndicator" data-bs-ride="carousel" data-bs-interval="5000" data-bs-pause="hover">
                     <div class="carousel-indicators">
                       <button class="active" type="button" data-bs-target="#testimonialIndicator" data-bs-slide-to="0" aria-current="true" aria-label="Testimonial 0"></button>
                       <button type="button" data-bs-target="#testimonialIndicator" data-bs-slide-to="1" aria-label="Testimonial 1"></button>
                       <button type="button" data-bs-target="#testimonialIndicator" data-bs-slide-to="2" aria-label="Testimonial 2"></button>
+                      <button type="button" data-bs-target="#testimonialIndicator" data-bs-slide-to="3" aria-label="Testimonial 3"></button>
+                      <button type="button" data-bs-target="#testimonialIndicator" data-bs-slide-to="4" aria-label="Testimonial 4"></button>
+                      <button type="button" data-bs-target="#testimonialIndicator" data-bs-slide-to="5" aria-label="Testimonial 5"></button>
                     </div>
                     <div class="carousel-inner">
                       <div class="carousel-item active">
-                        <img src="static/picture/comment/comment1.jpg" class="d-block w-100 rounded-3" alt="客戶評價 1" style="max-height: 350px; object-fit: contain;" loading="lazy">
+                        <img src="static/picture/comment/comment1.jpg" class="d-block w-100 rounded-3 testimonial-mobile-img" alt="客戶評價 1" loading="lazy">
                       </div>
                       <div class="carousel-item">
-                        <img src="static/picture/comment/comment2.jpg" class="d-block w-100 rounded-3" alt="客戶評價 2" style="max-height: 350px; object-fit: contain;" loading="lazy">
+                        <img src="static/picture/comment/comment2.jpg" class="d-block w-100 rounded-3 testimonial-mobile-img" alt="客戶評價 2" loading="lazy">
                       </div>
                       <div class="carousel-item">
-                        <img src="static/picture/comment/comment3.jpg" class="d-block w-100 rounded-3" alt="客戶評價 3" style="max-height: 350px; object-fit: contain;" loading="lazy">
+                        <img src="static/picture/comment/comment3.jpg" class="d-block w-100 rounded-3 testimonial-mobile-img" alt="客戶評價 3" loading="lazy">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="static/picture/comment/comment4.jpg" class="d-block w-100 rounded-3 testimonial-mobile-img" alt="客戶評價 4" loading="lazy">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="static/picture/comment/comment5.jpg" class="d-block w-100 rounded-3 testimonial-mobile-img" alt="客戶評價 5" loading="lazy">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="static/picture/comment/comment6.jpg" class="d-block w-100 rounded-3 testimonial-mobile-img" alt="客戶評價 6" loading="lazy">
                       </div>
                     </div>
                     <div class="carousel-navigation d-flex flex-column flex-between-center position-absolute end-0 top-lg-50 bottom-0 translate-middle-y z-index-1 me-3 me-lg-0" style="height:60px;width:20px;">
@@ -585,8 +632,8 @@
               <h4 class="footer-heading-color fw-bold font-sans-serif mb-3 mb-lg-4" data-i18n="footer.contact.title">聯繫方式</h4>
               <ul class="list-unstyled mb-0">
                 <li class="mb-2"><span class="link-900 fs--1 fw-medium" data-i18n="footer.contact.headOffice">本社地址：〒537-0025 大阪市東成区中道1丁目5-28-401号室</span></li>
-                <li class="mb-2"><span class="link-900 fs--1 fw-medium" data-i18n="footer.contact.phoneAndFax">電話：06-7777-6317　FAX：050-3198-0963</span></li>
-                <li class="mb-2"><span class="link-900 fs--1 fw-medium" data-i18n="footer.contact.tel">TEL：070-9231-0378</span></li>
+                <li class="mb-2"><span class="link-900 fs--1 fw-medium" data-i18n="footer.contact.phoneAndFax">固定電話：06-6657-4208 / 06-7777-6317　FAX：06-6657-4201</span></li>
+                <li class="mb-2"><span class="link-900 fs--1 fw-medium" data-i18n="footer.contact.tel">WhatsApp&TEL：+81 70-9231-0378 / +81 70-1737-1100</span></li>
                 <li class="mb-2"><a class="link-900 fs--1 fw-medium text-decoration-none" href="mailto:enjotraveljapan@gmail.com" data-i18n="footer.contact.email">E-mail: enjotraveljapan@gmail.com</a></li>
               </ul>
             </div>
@@ -1177,25 +1224,50 @@
         content: none !important;
       }
       
-      /* Testimonial section - remove white background */
+      /* Testimonial section - remove white background and prevent overflow */
+      #testimonial {
+        overflow: hidden;
+      }
+      
       #testimonial .carousel-item {
         background: transparent !important;
       }
       
       #testimonial .carousel-inner {
         background: transparent !important;
+        overflow: hidden;
       }
       
       #testimonial img {
         background: transparent !important;
+        max-width: 100%;
+        height: auto;
       }
       
       /* PC端：三張評價圖片並排顯示 */
+      .testimonial-images-desktop {
+        overflow: hidden;
+        position: relative;
+      }
+      
+      .testimonial-images-desktop .carousel {
+        overflow: hidden;
+      }
+      
+      .testimonial-images-desktop .carousel-inner {
+        overflow: hidden;
+      }
+      
+      .testimonial-images-desktop .carousel-item {
+        overflow: hidden;
+      }
+      
       .testimonial-images-desktop .testimonial-img {
-        max-height: 400px;
-        object-fit: contain;
+        height: 450px;
         width: 100%;
+        object-fit: contain;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: block;
       }
       
       .testimonial-images-desktop .testimonial-img:hover {
@@ -1208,18 +1280,140 @@
         .testimonial-images-desktop .row {
           display: flex;
           align-items: stretch;
+          min-height: 450px;
         }
         
         .testimonial-images-desktop .col-4 {
           display: flex;
           flex-direction: column;
+          align-items: center;
+          justify-content: center;
         }
         
         .testimonial-images-desktop .testimonial-img {
-          flex: 1;
-          height: 100%;
+          height: 450px;
+          width: 100%;
           object-fit: contain;
+          max-width: 100%;
         }
+      }
+      
+      /* 確保輪播項目保持固定高度 */
+      #testimonialCarouselDesktop .carousel-item {
+        min-height: 450px;
+      }
+      
+      #testimonialCarouselDesktop .carousel-inner {
+        min-height: 450px;
+      }
+      
+      /* PC端輪播控制按鈕樣式 */
+      #testimonialCarouselDesktop .carousel-control-prev,
+      #testimonialCarouselDesktop .carousel-control-next {
+        width: 45px;
+        height: 45px;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        opacity: 0.7;
+        transition: opacity 0.3s ease, background-color 0.3s ease;
+      }
+      
+      #testimonialCarouselDesktop .carousel-control-prev:hover,
+      #testimonialCarouselDesktop .carousel-control-next:hover {
+        opacity: 1;
+        background-color: rgba(0, 0, 0, 0.7);
+      }
+      
+      #testimonialCarouselDesktop .carousel-control-prev {
+        left: 5px;
+      }
+      
+      #testimonialCarouselDesktop .carousel-control-next {
+        right: 5px;
+      }
+      
+      #testimonialCarouselDesktop .carousel-control-prev-icon,
+      #testimonialCarouselDesktop .carousel-control-next-icon {
+        width: 18px;
+        height: 18px;
+      }
+      
+      /* PC端輪播指示器樣式 */
+      #testimonialCarouselDesktop .carousel-indicators {
+        bottom: -40px;
+        margin-bottom: 0;
+      }
+      
+      #testimonialCarouselDesktop .carousel-indicators button {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #6c757d;
+        opacity: 0.5;
+        border: none;
+        transition: opacity 0.3s ease, background-color 0.3s ease;
+      }
+      
+      #testimonialCarouselDesktop .carousel-indicators button.active {
+        opacity: 1;
+        background-color: #dc3545;
+      }
+      
+      #testimonialCarouselDesktop .carousel-indicators button:hover {
+        opacity: 0.8;
+      }
+      
+      /* 為輪播容器添加底部間距，避免指示器被裁切 */
+      .testimonial-images-desktop {
+        padding-bottom: 50px;
+        max-width: 100%;
+      }
+      
+      /* 確保testimonial區域的列不會溢出 */
+      #testimonial .col-lg-6 {
+        overflow: hidden;
+      }
+      
+      /* 禁用輪播的自動寬度計算，使用固定寬度 */
+      #testimonialCarouselDesktop {
+        width: 100%;
+        max-width: 100%;
+      }
+      
+      /* 確保圖片容器不會超出 */
+      .testimonial-images-desktop .row.g-3 {
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+        max-width: 100%;
+      }
+      
+      .testimonial-images-desktop .col-4 {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        max-width: 33.333333%;
+        flex: 0 0 33.333333%;
+      }
+      
+      /* 優化輪播切換動畫，防止溢出 */
+      #testimonialCarouselDesktop .carousel-item {
+        transition: transform 0.6s ease-in-out;
+        backface-visibility: hidden;
+        perspective: 1000px;
+      }
+      
+      /* 確保輪播切換時不會產生水平滾動條 */
+      #testimonialCarouselDesktop .carousel-inner {
+        width: 100%;
+        max-width: 100%;
+      }
+      
+      /* 防止圖片在切換時閃爍或超出 */
+      #testimonialCarouselDesktop .carousel-item img {
+        backface-visibility: hidden;
+        transform: translateZ(0);
       }
       
       /* Mobile: Optimize all images */
@@ -1239,9 +1433,41 @@
         
         /* Testimonial carousel images */
         #testimonial .carousel-item img {
-          max-height: 300px !important;
+          height: 350px !important;
           object-fit: contain;
           width: 100%;
+        }
+        
+        /* 確保移動端圖片高度一致 */
+        .testimonial-mobile-img {
+          height: 350px !important;
+          object-fit: contain !important;
+          width: 100% !important;
+          display: block;
+        }
+        
+        /* 移動端輪播項目固定高度 */
+        #testimonialIndicator .carousel-item {
+          min-height: 350px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        #testimonialIndicator .carousel-inner {
+          min-height: 350px;
+          overflow: hidden;
+        }
+        
+        /* 移動端輪播容器防止超出 */
+        .testimonial-carousel-mobile {
+          overflow: hidden;
+          width: 100%;
+          max-width: 100%;
+        }
+        
+        #testimonialIndicator {
+          overflow: hidden;
         }
         
         /* Footer logo */
@@ -1478,8 +1704,8 @@
             contact: {
               title: "聯繫方式",
               headOffice: "本社地址：〒537-0025 大阪市東成区中道1丁目5-28-401号室",
-              phoneAndFax: "電話：06-7777-6317　FAX：050-3198-0963",
-              tel: "TEL：070-9231-0378",
+              phoneAndFax: "固定電話：06-6657-4208 / 06-7777-6317　FAX：06-6657-4201",
+              tel: "WhatsApp&TEL：+81 70-9231-0378 / +81 70-1737-1100",
               email: "E-mail: enjotraveljapan@gmail.com"
             }
           }
@@ -1593,8 +1819,8 @@
             contact: {
               title: "連絡先",
               headOffice: "本社住所：〒537-0025 大阪市東成区中道1丁目5-28-401号室",
-              phoneAndFax: "電話：06-7777-6317　FAX：050-3198-0963",
-              tel: "TEL：070-9231-0378",
+              phoneAndFax: "固定電話：06-6657-4208 / 06-7777-6317　FAX：06-6657-4201",
+              tel: "WhatsApp&TEL：+81 70-9231-0378 / +81 70-1737-1100",
               email: "E-mail: enjotraveljapan@gmail.com"
             }
           }
@@ -1708,8 +1934,8 @@
             contact: {
               title: "Contact",
               headOffice: "Head Office: 1-5-28-401 Nakamichi, Higashinari-ku, Osaka-shi, Osaka 537-0025, Japan",
-              phoneAndFax: "Phone: 06-7777-6317　FAX: 050-3198-0963",
-              tel: "TEL: 070-9231-0378",
+              phoneAndFax: "Phone: 06-6657-4208 / 06-7777-6317　FAX: 06-6657-4201",
+              tel: "WhatsApp&TEL: +81 70-9231-0378 / +81 70-1737-1100",
               email: "E-mail: enjotraveljapan@gmail.com"
             }
           }
